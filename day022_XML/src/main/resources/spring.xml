@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 	
+	<!-- 스프링 컨테이너 사용하겠다. 그 이름이 id속성 -->
+ 	<bean id="udao" class="com.kbstar.dao.UserDAO"></bean>
+	<bean id="umdao" class="com.kbstar.dao.UserMysqlDAO"></bean>
+	<bean id="uservice" class="com.kbstar.service.UserService">
+		<constructor-arg name="dao" ref="umdao"></constructor-arg>
+		<!-- 컨스트럭터 설정 :  dao 와, service를 연결 -->
+	</bean>
+
+</beans>
+
+
+
+
+
