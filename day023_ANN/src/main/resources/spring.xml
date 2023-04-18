@@ -12,9 +12,7 @@
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
        ">
 	<context:component-scan base-package="com.*"/>
-	<!--어노테이션 기반은 윗줄 하나 -->
-	<aop:aspectj-autoproxy/>
-	<bean id="logAdvice" class="com.frame.LoggerAdvice"/>
+
 
 
 </beans>
