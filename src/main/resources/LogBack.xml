@@ -22,7 +22,7 @@
         </rollingPolicy>
     </appender>
     <!-- 출력 상황 선언  : INFO 또는 ERROR -->
-    <root level="ERROR">
+    <root level="INFO">
         <!-- level="ERROR" 로 교체하면, 에러아니고 정상일 땐 로그 출력 x. 에러일때만 출력해줘.     -->
         <appender-ref ref="STDOUT" />
     </root>

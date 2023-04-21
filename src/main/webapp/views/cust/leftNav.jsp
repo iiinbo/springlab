@@ -6,19 +6,15 @@
   <title>main</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 
 </head>
 <body>
 
 <%-- 왼쪽 사이드바 영역 시작  --%>
 <div class="col-sm-2 sidenav">
-  <p><a href="#">Link</a></p>
-  <p><a href="#">Link</a></p>
-  <p><a href="#">Link</a></p>
+  <h5>cust left Nav영역</h5>
+  <p><a href="/cust/add">add</a></p>
+  <p><a href="/cust/all">all</a></p>
 </div> <%-- 왼쪽 사이드바 끝  --%>
 
 </body>
