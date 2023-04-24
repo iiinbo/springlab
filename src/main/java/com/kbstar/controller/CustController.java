@@ -40,8 +40,8 @@ public class CustController {
         list.add(new Cust("id03","pwd03","넛지"));
         list.add(new Cust("id04","pwd04","사랑"));
         list.add(new Cust("id05","pwd05","애플"));
-        model.addAttribute("clist", list); // db에 저장된 list 보여주기(jsp파일에서 clist로 사용)
 
+        model.addAttribute("clist", list); // db에 저장된 list 보여주기(jsp파일에서 clist로 사용)
 
 
         model.addAttribute("center", dir + "all"); // center만 변경

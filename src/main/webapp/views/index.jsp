@@ -13,6 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <%-- 한데 모은 자바스크립트 파일 가져오기   --%>
     <script src="/js/index0421.js"></script>
+    <%-- MAP : 지도 생성   --%>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4617571d8f9917ae900e8b494a093c31"></script>
 
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
@@ -66,6 +68,9 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">홈</a></li>
                 <li><a href="/jsp">JSP</a></li>
+                <li><a href="/ajax">AJAX</a></li>
+                <li><a href="/map">Map</a></li>
+                <li><a href="/chart">Chart</a></li>
                 <li><a href="/cust">Cust</a></li>
                 <li><a href="/item">Item</a></li>
                 <%-- 로그인 고객에게만 보여주기    --%>
