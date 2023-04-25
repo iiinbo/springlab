@@ -15,6 +15,16 @@
     <script src="/js/index0421.js"></script>
     <%-- MAP : 지도 생성   --%>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4617571d8f9917ae900e8b494a093c31"></script>
+    <%-- chart01 : 차트 생성 --%>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <%--  chart 02...  --%>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
 
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
