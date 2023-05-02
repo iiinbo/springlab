@@ -78,15 +78,15 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="/">홈</a></li>
-                <li><a href="/jsp">JSP</a></li>
-                <li><a href="/ajax">AJAX</a></li>
-                <li><a href="/map">Map</a></li>
-                <li><a href="/chart">Chart</a></li>
                 <li><a href="/cust">Cust</a></li>
                 <li><a href="/item">Item</a></li>
                 <%-- 로그인 고객에게만 보여주기    --%>
                 <c:if test="${logincust != null }">
-                <li><a href="/quics?page=브랜드몰">Contect(회원전용)</a></li>
+                    <li><a href="/jsp">JSP</a></li>
+                    <li><a href="/ajax">AJAX</a></li>
+                    <li><a href="/map">Map</a></li>
+                    <li><a href="/chart">Chart</a></li>
+                    <li><a href="/quics?page=브랜드몰">Contect(회원전용)</a></li>
                 </c:if>
             </ul>
             <%--   로그인 고객 & 로그아웃 / 미로그인 고객 & 로그인, 회원가입 노출        --%>
@@ -99,6 +99,8 @@
                 </c:when>
                 <c:otherwise>
                     <ul class="nav navbar-nav navbar-right">
+                        <%-- 로그인 한 id에 대한 회원정보 상세보기 페이지로 이동 가능  --%>
+                        <li><a href="/custinfo?id=${logincust.id}">${logincust.id} 님</a></li>
                         <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> logout</a></li>
                     </ul>
                 </c:otherwise>

@@ -5,6 +5,11 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kbstar.mapper.ItemMapper">
 <!--KBmapper->CustMapper에 있는 함수 명칭(select,insert,...etc)이 select문의 id로 들어옴-->
+    <!-- (인터페이스 매퍼에서 만들었다.) 페이징 처리를 위한 함수명 선언하기. desc : 역순 -->
+    <select id="getpage" resultType="item">
+        SELECT * FROM item order by id desc
+    </select>
+
     <select id="select" parameterType="Integer" resultType="item">
         SELECT * FROM item WHERE id=#{id}
     </select>

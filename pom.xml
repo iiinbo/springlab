@@ -76,10 +76,16 @@
             <artifactId>json-simple</artifactId>
             <version>1.1</version>
         </dependency>
-<!--  시큐리티  자동추가 : 관리자화면과 회원화면을 연결 가능    -->
+        <!--  시큐리티(CORS)  자동추가 : 관리자화면과 회원화면을 연결 가능    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!--  페이징처리를 돕는 라이브러리   -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.4.6</version>
         </dependency>
     </dependencies>
 

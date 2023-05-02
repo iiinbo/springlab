@@ -1,5 +1,7 @@
 package com.kbstar.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.kbstar.dto.Cust;
 import com.kbstar.service.CustService;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +65,26 @@ public class CustController {
         model.addAttribute("leftNav", dir + "leftNav"); // leftNav 그대로
         return "index";
     }
+    // cust - leftNav "allpage" 클릭 시 나오는 center 페이지
+    @RequestMapping("/allpage") // 127.0.0.1/cust/allpage
+
+    public String allpage(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) throws Exception {
+        // 상세설명 : List<Cust> list = null ; 담기위해 바구니를 준비한다는 의미
+
+        PageInfo<Cust> p;
+        try {
+            p = new PageInfo<>(service.getpage(pageNo), 5); // 5:하단 네비게이션 개수(화살표 사이 넘버개수)
+        } catch (Exception e) {
+            throw new Exception("시스템 장애 발생 : ER0001");
+        }
+        model.addAttribute("target", "cust");
+        model.addAttribute("cpage", p); // p에 페이지 정보 담은걸 cpage라는 이름으로 jsp파일에서 쓰기
+        model.addAttribute("center", dir + "allpage"); // center만 변경
+        model.addAttribute("leftNav", dir + "leftNav"); // leftNav 그대로
+        return "index";
+    }
+
+
     // get
     @RequestMapping("/get") // 127.0.0.1/cust/get?id=
     public String get(Model model, String id) throws Exception{

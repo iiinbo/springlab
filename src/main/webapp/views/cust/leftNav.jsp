@@ -15,6 +15,7 @@
   <h5>cust left Nav영역</h5>
   <p><a href="/cust/add">add</a></p>
   <p><a href="/cust/all">all</a></p>
+  <p><a href="/cust/allpage">all(Page)</a></p>
 </div> <%-- 왼쪽 사이드바 끝  --%>
 
 </body>

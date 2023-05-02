@@ -15,6 +15,7 @@
   <h5>item left Nav영역</h5>
   <p><a href="/item/add">add</a></p>
   <p><a href="/item/all">all</a></p>
+  <p><a href="/item/allpage">all(Page)</a></p>
 </div> <%-- 왼쪽 사이드바 끝  --%>
 
 </body>
