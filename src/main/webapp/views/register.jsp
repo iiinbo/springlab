@@ -120,6 +120,7 @@
                 <button id="register_btn" type="button" class="btn btn-default">Register</button>
               </div>
             </div>
+            </div>
           </form>
         </div>
       </div>
