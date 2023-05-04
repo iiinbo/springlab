@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    <%-- MAP 지도는 반드시 가로세로 사이즈 지정 필수 --%>
+    <%-- MAP 지도는 반드시 가로세로 사이즈 지정 필수! --%>
     #map03 > #map {
       width: 90%;
       height: 400px;

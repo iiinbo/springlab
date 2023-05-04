@@ -37,7 +37,7 @@
             <td><a href="/item/get?id=${c.id}"> ${c.id} </a></td>
               <%--  사용자가 각각 id를 누르면 해당하는 id에 대한 상세 정보를 보여줘  --%>
             <td>${c.name}</td>
-            <td><fmt:formatNumber value="${c.price}" type="number" pattern="₩ ###.###" /></td>
+            <td><fmt:formatNumber value="${c.price}" type="number" pattern="###,###원" /></td>
             <td><fmt:formatDate  value="${c.rdate}" pattern="yyyy-MM-dd" /></td>
           </tr>
         </c:forEach>
