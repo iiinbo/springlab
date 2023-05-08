@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbstar.mapper.MarkerDescMapper">
+
+    <select id="getmarkerdesc" parameterType="integer" resultType="MarkerDesc">
+        SELECT * FROM markerdesc WHERE marker_id=#{id}
+    </select>
+    <select id="selectall" resultType="integer">
+        SELECT * FROM markerdesc
+    </select>
+    <insert id="insert" parameterType="markerdesc">
+        INSERT INTO markerdesc VALUES ((marker_seq.NEXTVAL,#{marker_id},#{item},#{price},#{imgname})
+    </insert>
+    <delete id="delete" parameterType="integer"> /*여기서 스트링은 웨얼값에 있는 id의 타입이다*/
+        DELETE FROM markerdesc WHERE id=#{id}
+    </delete>
+
+</mapper>

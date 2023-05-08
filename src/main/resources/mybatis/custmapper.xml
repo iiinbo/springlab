@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbstar.mapper.CustMapper">
+
+    <select id="getpage" resultType="cust">
+        SELECT * FROM cust order by id desc
+    </select>
+    <select id="select" parameterType="String" resultType="cust">
+        SELECT * FROM cust WHERE id=#{id}
+    </select>
+    <select id="selectall" resultType="cust">
+        SELECT * FROM CUST
+    </select>
+    <insert id="insert" parameterType="cust">
+        INSERT INTO CUST VALUES (#{id},#{pwd},#{name})
+    </insert>
+    <update id="update" parameterType="cust">
+        UPDATE CUST SET NAME=#{name},pwd=#{pwd} WHERE id=#{id}
+    </update>
+    <delete id="delete" parameterType="String"> /*여기서 스트링은 웨얼값에 있는 id의 타입이다*/
+        DELETE FROM CUST WHERE id=#{id}
+    </delete>
+
+</mapper>
