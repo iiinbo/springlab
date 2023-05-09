@@ -103,7 +103,7 @@
                         <%-- 로그인 한 고객정보 일시로 담고있는 곳 main 컨트롤러 loginimpl 에서, logincust 로 명칭 선언 --%>
                         <li><a href="/custinfo?id=${logincust.id}">${logincust.id} 님</a></li>
                             <%-- cart 선택 시 : cart 컨트롤러의 all에서 처리  --%>
-                            <li><a href="/cart/all?cid=${logincust.id}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                            <li><a href="/cart/all?id=${logincust.id}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
                         <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> logout</a></li>
                     </ul>
                 </c:otherwise>

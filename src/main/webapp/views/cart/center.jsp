@@ -52,7 +52,7 @@
               <td><fmt:formatDate  value="${obj.rdate}" pattern="yyyy-MM-dd" /></td>
               <%-- cart 컨트롤러에서 담긴상품 삭제 처리 --%>
               <%-- id 는 cart 테이블의 시퀀스로 된 id --%>
-              <td><a href="/cart/deletecart?id=${obj.id}" class="btn btn-info" role="button">삭제</a> </td>
+              <td><a href="/cart/delete?id=${obj.id}" class="btn btn-info" role="button">삭제</a> </td>
             </tr>
             <%-- total 초기값 0 + 더해지는 ITEM 금액 누적하기 --%>
             <c:set var="total" value="${total + (obj.cnt * obj.item_price) }" />

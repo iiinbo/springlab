@@ -77,7 +77,7 @@
       <div class="modal-body">
         <p>상품을 성공적으로 장바구니에 담았습니다! </p>
         <%-- 절대 유의! 로그인한 특정고객의  cart 조회 시엔 cid  --%>
-        <a href="/cart/all?cid=${logincust.id}" class="btn btn-info" role="button">장바구니로 이동</a>
+        <a href="/cart/all?id=${logincust.id}" class="btn btn-info" role="button">장바구니로 이동</a>
         <a href="/item/allpage" class="btn btn-info" role="button">쇼핑 계속하기</a>
 
       </div>

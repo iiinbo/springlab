@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,8 @@ public class MainController {
     // 패스워드 암호화 하기.
     @Autowired
     private BCryptPasswordEncoder encoder;
-
+    @Value("${adminserver}")
+    String adminServer; // 관리자용 서버의 ip주소 일일이 수정하기 귀찮으니까. http://
     @Autowired
     CustService service;
     Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
@@ -131,5 +133,14 @@ public class MainController {
     @RequestMapping("/quics")
     public String quics(String page){
         return page;
+    }
+
+    // left바 - websocket 링크연동 탭
+    // 참고 : 세부 동작들은 (ex. receiveall) admin화면에 msg컨트롤러에서 처리한다.(컨트롤러에선, send로 메세지 뿌리기)
+    @RequestMapping("/websocket")
+    public String websocket(Model model) {
+        model.addAttribute("adminServer", adminServer); // 서버주소 jsp에서 치기 간편
+        model.addAttribute("center", "websocket"); //websocket페이지로 교체
+        return "index";
     }
 }

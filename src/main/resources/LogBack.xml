@@ -41,7 +41,7 @@
     </appender>
     <!-- log 출력내용 선언  : INFO(정상 포함) 또는 ERROR(에러만) -->
     <root level="INFO">
-        <!-- level="ERROR" 로 교체하면, 에러아니고 정상일 땐 로그 출력 x. 에러일때만 출력해줘.     -->
+        <!-- level="ERROR" 로 교체하면, 정상일 땐 로그 출력 x. 에러일때만 출력해줘.     -->
         <appender-ref ref="STDOUT" />
     </root>
 
