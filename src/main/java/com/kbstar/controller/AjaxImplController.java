@@ -1,5 +1,6 @@
 package com.kbstar.controller;
 
+import com.kbstar.Util.WeatherUtil;
 import com.kbstar.dto.Cart;
 import com.kbstar.dto.Cust;
 import com.kbstar.dto.Marker;
@@ -102,5 +103,12 @@ public class AjaxImplController {
     public Object addcart(Cart cart) throws Exception {
         cartService.register(cart);
         return ""; // 낫띵.
+    }
+
+    // 브라우저에서 요청오면, 기상청의 날씨 정보를 JSON data 그대로~ 브라우저에 보내기
+    @RequestMapping("/weather2")
+    public Object weather2() throws Exception{ // object 에 json이 그대로 담긴다.
+        return WeatherUtil.getWeather3("108"); // 지역 넣으면, 시간에 대한 날씨를 보여준다.
+
     }
 }

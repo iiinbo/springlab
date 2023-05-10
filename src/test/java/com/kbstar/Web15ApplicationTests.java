@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Slf4j
 @SpringBootTest
-class Web14ApplicationTests {
+class Web15ApplicationTests {
     @Autowired
     private BCryptPasswordEncoder encoder; // 패스워드를 암호화 해주는 함수
 

@@ -1,5 +1,6 @@
 package com.kbstar.controller;
 
+import com.kbstar.Util.WeatherUtil;
 import com.kbstar.dto.Cust;
 import com.kbstar.service.CustService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,8 +27,10 @@ public class MainController {
     Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
     // 127.0.0.1
     @RequestMapping("/")
-    public String main(){
-        return "index";
+    public String main(Model model) throws Exception{
+        String result = WeatherUtil.getWeather1("109");
+        model.addAttribute("weatherinfo", result); // jsp 파일에서 weatherinfo 로 사용
+        return "index"; // 날씨정보는 center에 출력
 
 
     }

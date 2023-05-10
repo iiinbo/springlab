@@ -27,6 +27,71 @@
     <%-- 라이브 차트 만들기  --%>
     <script src="https://code.highcharts.com/modules/data.js"></script>
 
+<script>  <%--   메인화면 우측 하단 : chat Bot 바로가기 버튼     --%>
+    let chatbtn = {
+        init:function(){
+            const scrollBtn = document.createElement("button");
+            scrollBtn.innerHTML = "chatbot"; // 버튼1
+            scrollBtn.setAttribute("id", "scroll-btn");
+            document.body.appendChild(scrollBtn);
+            scrollBtn.classList.add("show");
+            scrollBtn.addEventListener("click", function(){
+                location.href='/login';
+            });
+            const scrollBtn2 = document.createElement("button");
+            scrollBtn2.innerHTML = "1:1"; // 버튼2
+            scrollBtn2.setAttribute("id", "scroll-btn2");
+            document.body.appendChild(scrollBtn2);
+            scrollBtn2.classList.add("show");
+            scrollBtn2.addEventListener("click", function(){
+                location.href='/login';
+            });
+        }
+    };
+
+    $(function(){
+        chatbtn.init();
+    });
+</script>
+    <style>
+        <%--   메인화면 우측 하단 : chat Bot 바로가기 버튼     --%>
+        #scroll-btn {
+            opacity: 0;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            background-color: #ef476f;
+            position: fixed;
+            bottom: 13%;
+            right: 10%;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            font: 2px monospace;
+            transition: opacity 2s, transform 2s;
+        }
+        #scroll-btn.show {
+            opacity: 1;
+            transition: opacity 5s, transform 5s;
+        }
+        #scroll-btn2 {
+            opacity: 0;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            background-color: #ef476f;
+            position: fixed;
+            bottom: 5%;
+            right: 10%;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            font: bold 10px monospace;
+            transition: opacity 2s, transform 2s;
+        }
+        #scroll-btn2.show {
+            opacity: 1;
+            transition: opacity 5s, transform 5s;
+        }
+    </style>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
@@ -62,6 +127,7 @@
     </style>
 
 </head>
+
 <body>
 
 <nav class="navbar navbar-inverse">
@@ -158,6 +224,5 @@
     <p>Footer Text</p>
 </footer>
 
-<%--   다른 페이지로 넘어가기. <h3><a href="/quics?page=bs03">BS03</a> </h3>--%>
 </body>
 </html>
