@@ -1,5 +1,6 @@
 package com.kbstar.controller;
 
+import com.kbstar.Util.FileUploadUtil;
 import com.kbstar.Util.WeatherUtil;
 import com.kbstar.dto.Cart;
 import com.kbstar.dto.Cust;
@@ -10,8 +11,10 @@ import com.kbstar.service.MarkerService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,12 +29,20 @@ public class AjaxImplController {
     MarkerService service;
     @Autowired
     CustService custService; // 회원가입 시 id중복확인 위해
-
+    @Value("${uploadimgdir}") // 이미지 즉시 저장경로
+    String imgdir;
     // 서버의 시간 실시간으로 보여주기
     @RequestMapping("/getservertime")
     public Object getservertime(){ // object : 화면(문자) 외에, 다양한 것(server 정보 등)으로 결과 return 가능.
         Date date = new Date();
         return date;
+    }
+
+    @RequestMapping("/saveimg")
+    public String saveimg(MultipartFile file){
+        String filename = file.getOriginalFilename(); // 이미지 올라오면 이름 다시 등록하기
+        FileUploadUtil.saveFile(file, imgdir); // 그 다음 저장.
+        return filename;
     }
     //id 중복체크
     @RequestMapping("/checkid")

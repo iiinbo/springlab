@@ -28,8 +28,8 @@ public class MainController {
     // 127.0.0.1
     @RequestMapping("/")
     public String main(Model model) throws Exception{
-        String result = WeatherUtil.getWeather1("109");
-        model.addAttribute("weatherinfo", result); // jsp 파일에서 weatherinfo 로 사용
+//        String result = WeatherUtil.getWeather1("109");
+//        model.addAttribute("weatherinfo", result); // jsp 파일에서 weatherinfo 로 사용
         return "index"; // 날씨정보는 center에 출력
 
 
@@ -138,12 +138,33 @@ public class MainController {
         return page;
     }
 
+    // left바 첫번째 링크 : pic
+    @RequestMapping("/pic")
+    public String pic(Model model) {
+        model.addAttribute("center", "pic"); //pic페이지 이동
+        return "index";
+    }
     // left바 - websocket 링크연동 탭
     // 참고 : 세부 동작들은 (ex. receiveall) admin화면에 msg컨트롤러에서 처리한다.(컨트롤러에선, send로 메세지 뿌리기)
     @RequestMapping("/websocket")
     public String websocket(Model model) {
         model.addAttribute("adminServer", adminServer); // 서버주소 jsp에서 치기 간편
         model.addAttribute("center", "websocket"); //websocket페이지로 교체
+        return "index";
+    }
+
+    // 6. cfr1
+    @RequestMapping("/cfr1")
+    public String cfr1(Model model) {
+
+        model.addAttribute("center", "cfr1"); //cfr1페이지로 교체
+        return "index";
+    }
+    // 6. cfr2
+    @RequestMapping("/cfr2")
+    public String cfr2(Model model) {
+
+        model.addAttribute("center", "cfr2"); //cfr2페이지로 교체
         return "index";
     }
 }

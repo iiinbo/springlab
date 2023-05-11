@@ -24,7 +24,7 @@
     };
     // 실행
     $(function (){
-        center.init();
+       // center.init();
     });
 </script>
 <style>
