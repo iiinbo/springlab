@@ -30,7 +30,9 @@
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
     <%-- 라이브 차트 만들기  --%>
     <script src="https://code.highcharts.com/modules/data.js"></script>
-
+    <%-- 웹소켓 사용하기 위한 라이브러리 --%>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 <script>  <%--   메인화면 우측 하단 : chat Bot 바로가기 버튼     --%>
     let chatbtn = {
         init:function(){
@@ -40,7 +42,7 @@
             document.body.appendChild(scrollBtn);
             scrollBtn.classList.add("show");
             scrollBtn.addEventListener("click", function(){
-                location.href='/login';
+                location.href='/chatbot'; // main 컨트롤러에서 페이지 이동
             });
             const scrollBtn2 = document.createElement("button");
             scrollBtn2.innerHTML = "1:1"; // 버튼2
@@ -48,7 +50,7 @@
             document.body.appendChild(scrollBtn2);
             scrollBtn2.classList.add("show");
             scrollBtn2.addEventListener("click", function(){
-                location.href='/login';
+                location.href='/callcenter'; // main  컨트롤러에서 페이지 이동
             });
         }
     };

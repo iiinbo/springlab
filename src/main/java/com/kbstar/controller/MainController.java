@@ -167,4 +167,24 @@ public class MainController {
         model.addAttribute("center", "cfr2"); //cfr2페이지로 교체
         return "index";
     }
+
+    // 참고 : 세부 동작들은 (ex. receiveall) admin화면에 msg컨트롤러에서 처리한다.(컨트롤러에선, send로 메세지 뿌리기)
+    @RequestMapping("/chatbot")
+    public String chatbot(Model model, HttpSession session) {
+        if (session.getAttribute("logincust") == null ){
+            return "redirect:/login"; // 로그인 후 챗봇 이용할 수 있게 페이지 권유.
+        }
+        model.addAttribute("adminServer", adminServer); // 서버주소를 jsp에서 치기 간편하게.
+        model.addAttribute("center", "chatbot"); //chatbot 페이지 교체
+        return "index";
+    }
+    @RequestMapping("/callcenter")
+    public String callcenter(Model model, HttpSession session) {
+        if (session.getAttribute("logincust") == null ){
+            return "redirect:/login"; // 로그인 후 콜센터 이용할 수 있게 페이지 권유.
+        }
+        model.addAttribute("adminServer", adminServer); // 서버주소 jsp에서 치기 간편하게.
+        model.addAttribute("center", "callcenter"); //chatbot 페이지 교체
+        return "index";
+    }
 }
