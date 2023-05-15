@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbstar.mapper.CartMapper">
+    <!-- 장바구니 상세 화면에 뿌릴 컬럼값이 많으면 아래처럼~(sql에서 돌아가는지 보고 그대로 복붙. ;은 지우고)
+       카트의 아이디가 id인 것을 보여줘~ 의 의미. c.id = ${id} -->
+    <select id="select" parameterType="Integer" resultType="cart">
+        select c.id, c.cust_id, c.item_id, c.cnt, c.rdate
+             , cu.name AS cust_name, it.name  AS item_name, it.price AS item_price, it.imgname AS item_imgname
+        from cart c, cust cu, item it
+        where c.cust_id = cu.id
+          and c.item_id = it.id
+          and c.id = #{id}
+    </select>
+    <!-- 본인의 장바구니만 조회해주기. 맨 마지막줄만 추가.
+        "특정 고객"의 장바구니만 조회하는 것을 cid 라고 service에 선언했다면
+        index.jsp 파일에서 경로를 이처럼 써주기. <a href="/cart/all?cid=${logincust.id}">-->
+    <select id="getmycart"  parameterType="String"  resultType="cart">
+        select c.id, c.cust_id, c.item_id, c.cnt, c.rdate
+             , cu.name AS cust_name, it.name  AS item_name, it.price AS item_price, it.imgname AS item_imgname
+        from cart c, cust cu, item it
+        where c.cust_id = cu.id
+          and c.item_id = it.id
+          and c.cust_id = #{cid}
+    </select>
+
+
+<!-- 장바구니 화면에 뿌릴 컬럼값이 많으면 아래처럼~(sql에서 돌아가는지 보고 그대로 복붙. ;은 지우고)
+  -->
+    <select id="selectall" resultType="cart">
+        select c.id, c.cust_id, c.item_id, c.cnt, c.rdate
+             , cu.name AS cust_name, it.name  AS item_name, it.price AS item_price, it.imgname AS item_imgname
+        from cart c, cust cu, item it
+        where c.cust_id = cu.id
+          and c.item_id = it.id
+    </select>
+    <!-- 이미 담긴 상품이면 update. 없으면 insert   -->
+    <insert id="insert" parameterType="cart">
+        MERGE INTO cart
+            USING dual
+            ON (cust_id = #{cust_id} AND item_id = #{item_id})
+            WHEN NOT MATCHED THEN
+                INSERT (id,cust_id,item_id,cnt,rdate)
+                    VALUES (cart_seq.NEXTVAL, #{cust_id}, #{item_id}, #{cnt}, SYSDATE)
+            WHEN MATCHED THEN
+                UPDATE SET
+                    cnt = cnt+ #{cnt}
+    </insert>
+    <update id="update" parameterType="cart">
+        UPDATE cart
+        SET ITEM_ID=#{item_id},
+            CNT=#{cnt}
+        WHERE ID = #{id}
+    </update>
+    <delete id="delete" parameterType="Integer">
+        DELETE
+        FROM cart
+        WHERE ID = #{id}
+    </delete>
+</mapper>
