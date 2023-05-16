@@ -71,7 +71,7 @@ public class MainController {
     // 3- 로그아웃
         // session 추가.
     @RequestMapping("/logout")
-    public String loglogoutin(Model model, HttpSession session){
+    public String logout(Model model, HttpSession session){
         if (session != null ) { // session에 정보가 비어있지 않다면,
             session.invalidate(); // 비워라.
         }
